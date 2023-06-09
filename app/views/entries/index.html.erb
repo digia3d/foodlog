@@ -1,0 +1,20 @@
+<% content_for(:title) do %>
+  Foodlog &ndash; <%= DateTime.now %>
+<% end %>
+
+<div class="columns mt-6 is-centered">
+  <% @entries.each do |entry| %>
+  <div class="column is-one-quarter">
+    <div class="card">
+    <%= entry.meal_type %>
+    <%= entry.calories %>
+    <%= entry.proteins %>
+    <%= entry.carbohydrates %>
+    <%= entry.fats %>
+    <%= link_to 'Show', entry %>
+    <%= link_to 'Edit', edit_entry_path(entry) %>
+    <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  <% end %>
+</div>
+
